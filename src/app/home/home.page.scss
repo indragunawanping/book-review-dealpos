@@ -1,4 +1,4 @@
-ion-content{
+ion-content {
   display: flex !important;
   flex-direction: row !important;
 }
@@ -13,21 +13,26 @@ ion-content{
 
   .sub-container {
     width: 80%;
+
     .flex-row {
       display: flex;
       flex-direction: row;
     }
 
     .content-container {
-
       .sub-content-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         width: 50%;
       }
 
       .title-content {
         font-size: 20px;
+      }
+
+      .required{
+        color: var(--ion-color-danger);
+        font-size: 10px;
       }
 
       ion-list {
@@ -61,10 +66,28 @@ ion-content{
           }
         }
 
-        .selected{
-          .year{
+        .selected {
+          .year {
             background-color: magenta;
           }
+        }
+      }
+
+      .review-container {
+        margin: 20px 0;
+        .review-email {
+
+        }
+
+        .review {
+          color: #9d9fa6;
+          font-size: 12px;
+        }
+
+        .stars{
+          margin-top: 10px;
+          display: flex;
+          flex-direction: row;
         }
       }
 

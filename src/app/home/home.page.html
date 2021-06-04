@@ -15,13 +15,13 @@
 
             <ion-item>
               <ion-label position="stacked">Year</ion-label>
-              <ion-input formControlName="year" placeholder="Year"></ion-input>
+              <ion-input formControlName="year" type="Number" placeholder="Year"></ion-input>
             </ion-item>
           </ion-list>
         </div>
 
         <div class="button-container">
-          <ion-button (click)="addButtonClick()">Add</ion-button>
+          <ion-button (click)="addBookButtonClick()">Add</ion-button>
         </div>
       </div>
 
@@ -31,23 +31,60 @@
         </div>
 
         <div class="cards ion-margin-vertical">
-          <div  [class]="'card ion-margin-horizontal'" [ngClass]="{'selected': idxSelectedMovie === idx}" *ngFor="let book of books; let idx=index" (click)="movieCardClick(idx)">
-            <div class="name">{{book.name}}</div>
-            <div class="year">{{book.year}}</div>
+          <div [class]="'card ion-margin-horizontal'" [ngClass]="{'selected': idxSelectedMovie === idx}"
+               *ngFor="let book of books; let idx=index" (click)="movieCardClick(idx)">
+            <div class="name">{{book.name ? book.name : '[unknown]' }}</div>
+            <div class="year">{{book.year ? book.year : '[unknown]'}}</div>
           </div>
         </div>
       </div>
 
-      <div class="content-container flex-row">
+      <div class="content-container flex-row" *ngIf="idxSelectedMovie > -1">
         <div class="sub-content-container">
           <div class="title-content">
-            Harry Potter Review
+            {{books[idxSelectedMovie].name}} Review
           </div>
+
+          <ng-container *ngFor="let review of this.books[idxSelectedMovie].reviews">
+            <div class="review-container">
+              <div class="review-email">{{review.email}}</div>
+              <div class="review">{{review.note}}</div>
+              <div class="stars">
+                <ng-container *ngFor="let star of review.stars">
+                  <ion-icon name="star" *ngIf="star === 1"></ion-icon>
+                  <ion-icon name="star-outline" *ngIf="star === 0"></ion-icon>
+                </ng-container>
+              </div>
+            </div>
+          </ng-container>
         </div>
 
         <div class="sub-content-container">
           <div class="title-content">
             New Review
+          </div>
+
+          <form [formGroup]="reviewForm">
+            <ion-list lines="full" class="ion-no-margin">
+              <ion-item>
+                <ion-label position="stacked">Email</ion-label>
+                <ion-input formControlName="email" placeholder="Email"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="stacked">Note</ion-label>
+                <ion-input formControlName="note" placeholder="Note"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="stacked">Star</ion-label>
+                <ion-input type="Number" formControlName="star" placeholder="Star"></ion-input>
+              </ion-item>
+            </ion-list>
+          </form>
+
+          <div class="button-container">
+            <ion-button (click)="saveReviewButtonClick()">Save</ion-button>
           </div>
         </div>
       </div>
