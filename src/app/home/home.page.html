@@ -1,20 +1,40 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container">
+    <div class="content-container">
+      <div class="title-content">
+        New Book
+      </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <ion-list lines="full" class="ion-no-margin">
+        <ion-item>
+          <ion-label position="stacked">Name</ion-label>
+          <ion-input placeholder="Name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Year</ion-label>
+          <ion-input placeholder="Year"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <div class="button-container">
+        <ion-button>Add</ion-button>
+      </div>
+
+    </div>
+
+    <div class="content-container">
+      <div class="title-content">
+        Books
+      </div>
+
+
+      <div class="cards ion-margin-vertical">
+        <div class="card ion-margin-horizontal" *ngFor="let book of books">
+          <div class="name">{{book.name}}</div>
+          <div class="year">{{book.year}}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>

@@ -1,27 +1,47 @@
-#container {
-  text-align: center;
+.container {
+  padding: 20px;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  .content-container {
+    max-width: 50%;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+    .title-content {
+      font-size: 27px;
+    }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+    ion-list {
+      margin: 30px 0 30px 0;
+    }
 
-  color: #8c8c8c;
+    .cards {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto !important;
+      padding-bottom: 20px;
 
-  margin: 0;
-}
+      .card {
+        min-width: 150px;
+        background-color: #9d9fa6;
+        text-align: center;
+        border-radius: 10px;
 
-#container a {
-  text-decoration: none;
+        .name {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 200px;
+        }
+
+        .year {
+          padding: 10px;
+          background-color: var(--ion-color-primary);
+          border-radius: 0 0 10px 10px;
+        }
+      }
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
 }
