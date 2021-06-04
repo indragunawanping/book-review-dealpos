@@ -57,7 +57,6 @@ export class HomePage {
   }
 
   saveReviewButtonClick() {
-    console.log('this.reviewForm.value.star: ', this.reviewForm.value.star);
     if (this.reviewForm.value.star >= 0 && this.reviewForm.value.star <= 5) {
       const starArr = [];
       for (let i = 0; i < 5; i++) {
@@ -67,8 +66,6 @@ export class HomePage {
           starArr.push(0);
         }
       }
-
-      console.log('starArr: ', starArr);
 
       if (this.idxSelectedMovie > -1) {
         this.books[this.idxSelectedMovie].reviews.push(
