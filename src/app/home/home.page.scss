@@ -1,47 +1,77 @@
+ion-content{
+  display: flex !important;
+  flex-direction: row !important;
+}
+
 .container {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 
-  .content-container {
-    max-width: 50%;
-
-    .title-content {
-      font-size: 27px;
-    }
-
-    ion-list {
-      margin: 30px 0 30px 0;
-    }
-
-    .cards {
+  .sub-container {
+    width: 80%;
+    .flex-row {
       display: flex;
       flex-direction: row;
-      overflow-x: auto !important;
-      padding-bottom: 20px;
-
-      .card {
-        min-width: 150px;
-        background-color: #9d9fa6;
-        text-align: center;
-        border-radius: 10px;
-
-        .name {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 200px;
-        }
-
-        .year {
-          padding: 10px;
-          background-color: var(--ion-color-primary);
-          border-radius: 0 0 10px 10px;
-        }
-      }
     }
 
-    .button-container {
-      display: flex;
-      flex-direction: row-reverse;
+    .content-container {
+
+      .sub-content-container {
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+      }
+
+      .title-content {
+        font-size: 20px;
+      }
+
+      ion-list {
+        margin: 30px 0 30px 0;
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto !important;
+        padding-bottom: 20px;
+
+        .card {
+          min-width: 150px;
+          background-color: #9d9fa6;
+          text-align: center;
+          border-radius: 10px;
+          cursor: pointer;
+
+          .name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+          }
+
+          .year {
+            padding: 10px;
+            background-color: var(--ion-color-primary);
+            border-radius: 0 0 10px 10px;
+          }
+        }
+
+        .selected{
+          .year{
+            background-color: magenta;
+          }
+        }
+      }
+
+      .button-container {
+        display: flex;
+        flex-direction: row-reverse;
+      }
     }
   }
 }

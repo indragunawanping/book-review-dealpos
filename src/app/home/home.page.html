@@ -1,38 +1,54 @@
 <ion-content [fullscreen]="true">
   <div class="container">
-    <div class="content-container">
-      <div class="title-content">
-        New Book
+    <div class="sub-container">
+      <div class="content-container">
+        <div class="title-content">
+          New Book
+        </div>
+
+        <div [formGroup]="bookForm">
+          <ion-list lines="full" class="ion-no-margin">
+            <ion-item>
+              <ion-label position="stacked">Name</ion-label>
+              <ion-input formControlName="name" placeholder="Name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked">Year</ion-label>
+              <ion-input formControlName="year" placeholder="Year"></ion-input>
+            </ion-item>
+          </ion-list>
+        </div>
+
+        <div class="button-container">
+          <ion-button (click)="addButtonClick()">Add</ion-button>
+        </div>
       </div>
 
-      <ion-list lines="full" class="ion-no-margin">
-        <ion-item>
-          <ion-label position="stacked">Name</ion-label>
-          <ion-input placeholder="Name"></ion-input>
-        </ion-item>
+      <div class="content-container">
+        <div class="title-content">
+          Books
+        </div>
 
-        <ion-item>
-          <ion-label position="stacked">Year</ion-label>
-          <ion-input placeholder="Year"></ion-input>
-        </ion-item>
-      </ion-list>
-
-      <div class="button-container">
-        <ion-button>Add</ion-button>
+        <div class="cards ion-margin-vertical">
+          <div  [class]="'card ion-margin-horizontal'" [ngClass]="{'selected': idxSelectedMovie === idx}" *ngFor="let book of books; let idx=index" (click)="movieCardClick(idx)">
+            <div class="name">{{book.name}}</div>
+            <div class="year">{{book.year}}</div>
+          </div>
+        </div>
       </div>
 
-    </div>
+      <div class="content-container flex-row">
+        <div class="sub-content-container">
+          <div class="title-content">
+            Harry Potter Review
+          </div>
+        </div>
 
-    <div class="content-container">
-      <div class="title-content">
-        Books
-      </div>
-
-
-      <div class="cards ion-margin-vertical">
-        <div class="card ion-margin-horizontal" *ngFor="let book of books">
-          <div class="name">{{book.name}}</div>
-          <div class="year">{{book.year}}</div>
+        <div class="sub-content-container">
+          <div class="title-content">
+            New Review
+          </div>
         </div>
       </div>
     </div>
